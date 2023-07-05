@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Matrix.Tests", "Matrix.Tests\Matrix.Tests.csproj", "{13435A8F-0803-4743-B3FB-DD2BC0066E90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Matrix", "Matrix\Matrix.csproj", "{1EDD5DF6-5B31-4FB6-B247-1D715662A7D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farm", "..\Farm\Farm.csproj", "{F3869911-55EA-4585-BF02-33C8C0715B1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13435A8F-0803-4743-B3FB-DD2BC0066E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13435A8F-0803-4743-B3FB-DD2BC0066E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13435A8F-0803-4743-B3FB-DD2BC0066E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13435A8F-0803-4743-B3FB-DD2BC0066E90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EDD5DF6-5B31-4FB6-B247-1D715662A7D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EDD5DF6-5B31-4FB6-B247-1D715662A7D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EDD5DF6-5B31-4FB6-B247-1D715662A7D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EDD5DF6-5B31-4FB6-B247-1D715662A7D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3869911-55EA-4585-BF02-33C8C0715B1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3869911-55EA-4585-BF02-33C8C0715B1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3869911-55EA-4585-BF02-33C8C0715B1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3869911-55EA-4585-BF02-33C8C0715B1A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

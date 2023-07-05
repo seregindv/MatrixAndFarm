@@ -1,0 +1,44 @@
+:host() {
+    height: 100%;
+    display: block;
+}
+
+.status {
+    height: 60px;
+    border-top: solid 1px lightgrey;
+    align-items: center;
+    display: flex;
+    padding: 0 20px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border: solid 1px lightgray;
+    padding: 0 14px;
+    margin: 10px;
+}
+
+.card-title {
+    flex: 1 0 0;
+}
+
+.delete-button {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.delete-button:after {
+    display: inline-block;
+    content: "\00d7";
+}
+
+.title {
+    height: 60px;
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    font-size: 20px;
+}

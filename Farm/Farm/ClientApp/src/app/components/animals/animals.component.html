@@ -1,0 +1,13 @@
+<div class="flex-column full-h">
+    <nav class="title">Animals</nav>
+    <div class="flex-fill" style="overflow-y: auto">
+        <div *ngFor="let animal of animals" class="card">
+            <div class="card-title">{{animal}}</div>
+            <div class="delete-button" (click)="deleteAnimal(animal)"></div>
+        </div>
+    </div>
+    <div class="status">
+        <div class="flex-fill" style="color: red">{{statusText}}</div>
+        <input style="font-size: 20px" type="button" value="Add animal" (click)="addAnimal()">
+    </div>
+</div>
