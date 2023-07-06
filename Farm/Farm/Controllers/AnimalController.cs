@@ -1,5 +1,5 @@
-﻿using Farm.Data;
-using Farm.Services.Contracts;
+﻿using Farm.Requests;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Farm.Controllers;
@@ -7,26 +7,21 @@ namespace Farm.Controllers;
 [ApiController, Route("api/[controller]")]
 public class AnimalController : ControllerBase
 {
-    private readonly IAnimalService _animalService;
+    private readonly IMediator _mediator;
 
-    public AnimalController(IAnimalService animalService)
-    {
-        _animalService = animalService;
-    }
+    public AnimalController(IMediator mediator)
+        => _mediator = mediator;
 
     [HttpGet]
-    public ICollection<string> GetAll() => _animalService.GetAnimals();
+    public Task<ICollection<string>> GetAll()
+        => _mediator.Send(new GetAnimalsRequest());
 
     [HttpPost]
-    public IResult CreateAnimal([FromBody] CreateAnimalRequest reqeust)
-    {
-        if(!ModelState.IsValid)
-            return Results.UnprocessableEntity(reqeust);
-        
-        return _animalService.Add(reqeust.Name) ? Results.CreatedAtRoute() : Results.Conflict();
-    }
+    public Task<IResult> CreateAnimal([FromBody] AddAnimalRequest request)
+        => _mediator.Send(request);
+
 
     [HttpDelete("{name}")]
-    public IResult DeleteAnimal(string name)
-        => _animalService.Delete(name) ? Results.NoContent() : Results.NotFound();
+    public Task<IResult> DeleteAnimal(string name)
+        => _mediator.Send(new DeleteAnimalRequest { Name = name });
 }

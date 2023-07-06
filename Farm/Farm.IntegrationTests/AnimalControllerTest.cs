@@ -1,8 +1,7 @@
-using Farm.Data;
+using Farm.Requests;
 using Farm.Services.Contracts;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http.Json;
 
@@ -38,11 +37,19 @@ namespace Farm.IntegrationTests
             var animalService = _appFactory.Services.GetRequiredService<IAnimalService>();
 
             var client = _appFactory.CreateClient();
-            var result = await client.PostAsJsonAsync("/api/animal", new CreateAnimalRequest { Name = "Cow" });
+            var result = await client.PostAsJsonAsync("/api/animal", new AddAnimalRequest { Name = "Cow" });
             result.EnsureSuccessStatusCode();
 
             var animals = animalService.GetAnimals();
             Assert.Contains("Cow", animals);
+        }
+
+        [Fact]
+        public async Task Post_ReturnsBadRequestWhenAnimalNameIsEmpty()
+        {
+            var client = _appFactory.CreateClient();
+            var result = await client.PostAsJsonAsync("/api/animal", new AddAnimalRequest());
+            Assert.Equal(HttpStatusCode.BadRequest, result.StatusCode);
         }
 
         [Fact]
@@ -52,7 +59,7 @@ namespace Farm.IntegrationTests
             animalService.Add("Cow");
 
             var client = _appFactory.CreateClient();
-            var result = await client.PostAsJsonAsync("/api/animal", new CreateAnimalRequest { Name = "Cow" });
+            var result = await client.PostAsJsonAsync("/api/animal", new AddAnimalRequest { Name = "Cow" });
 
             Assert.Equal(HttpStatusCode.Conflict, result.StatusCode);
         }
